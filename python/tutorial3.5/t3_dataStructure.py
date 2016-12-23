@@ -148,6 +148,39 @@ print(dict([('tom', 'men'), ('hanMeiMei', 'women')]))  # {'liLei': 'man', 'hanMe
 print(dict(tom='men', hanMeiMei='women', jack='undefined'))  # {'jack': 'undefined', 'hanMeiMei': 'women', 'tom': 'men'}
 
 
+# 循环技巧
+
+# 字典循环，关键字和值可以使用 items() 方法同时解读出来
+
+person = {'name': 'tom', 'age':23}
+for k, v in person.items():
+    print(k, v)
+
+# 序列循环，索引和值可以使用 enumerate() 函数同上得到
+
+for i, v in enumerate(['tom', 'liLei', 'hanMeiMei']):
+    print(i, v)
+
+# 同时循环两个或更多的序列，可以使用 zip() 整体打包
+
+questions = ['name', 'quest', 'favorite color']
+answers = ['tom', 'the holy grail', 'blue']
+for q, a in zip(questions, answers):
+    print('what is your {0}？it is {1}.' . format(q, a))
+
+# 需要逆向循环序列的话，先正向定位序列，然后调用 reversed() 函数
+
+for i in reversed(range(1, 10, 2)):
+    print(i)
+
+# 若要在循环内部修改正在遍历的序列（例如复制某些元素），可以先制作副本，可使用切片方法。
+
+words = ['cat', 'window', 'defenestrate']
+for w in words[:]:
+    if len(w) > 6:
+        words.insert(0, w)
+
+print(words)
 
 
 
