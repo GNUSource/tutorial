@@ -23,10 +23,10 @@ for w in words[:]:
         words.insert(0, w)
 
 
-print(words)
+print(words)  # ['defenestrate', 'cat', 'window', 'defenestrate']
 
 # range() 生成等差级数链表
-print(list(range(1, 10, 2)))
+print(list(range(1, 10, 2)))  # ['defenestrate', 'cat', 'window', 'defenestrate']
 
 # break：与 c 语言类似，用于跳出最近一级循环
 # continue：循环继续执行下一次迭代
@@ -39,7 +39,14 @@ for n in range(2, 10):
             break
     else:
         print(n, 'is a prime number')
-
+# 2 is a prime number
+# 3 is a prime number
+# 4 equals 2 * 2
+# 5 is a prime number
+# 6 equals 2 * 3
+# 7 is a prime number
+# 8 equals 2 * 4
+# 9 equals 3 * 3
 
 # 函数
 def fib(n):
@@ -57,7 +64,9 @@ def fib(n):
     return result
 
 f = fib  # 函数重命名
-print(f(100))
+print(f(100))  # [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+
+
 # 函数参数的定义有3种方式
 # 默认参数值：def ask_ok(prompt, retries=4, complaint='Yes or no, please!'):...
 i = 5
@@ -71,7 +80,9 @@ def f(arg=i):
     print(arg)
 
 i = 6
-f()
+f()  # 5
+
+
 # Note：默认值只被赋值一次。这使得当默认值是可变对象时会有所不同，比如列表、字典或者大多数类的实例。
 # 例如，下面的函数在后续的调用过程中会累积（前面）传递给它的参数
 
@@ -85,9 +96,9 @@ def f(a, l=[]):
     l.append(a)
     return l
 
-print(f(1))
-print(f(2))
-print(f(3))
+print(f(1))  # [1]
+print(f(2))  # [1, 2]
+print(f(3))  # [1, 2, 3]
 
 # 如果你不想让默认值在后续调用中累积，你可以像下面一样定义函数
 
@@ -103,9 +114,9 @@ def f(a, l=None):
     l.append(a)
     return l
 
-print(f(1))
-print(f(2))
-print(f(3))
+print(f(1))  # [1]
+print(f(2))  # [2]
+print(f(3))  # [3]
 
 # 关键字参数：在函数调用中，关键字的参数必须跟随在位置参数的后面，传递的所有关键字参数必须与函数接受的某个参数相匹配，
 # 它们的顺序并不重要，这也包括非可选参数。任何参数都不可以多次赋值。
