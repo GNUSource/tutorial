@@ -51,6 +51,7 @@ heappush(data, -5)
 
 # 十进制浮点数算法
 #     decimal 是一个适用于高精度浮点数运算的模块
+#     fractions 模块是一个基于有理数的运算
 
 from decimal import *
 print(Decimal('1.00') % Decimal('.10'))  # 0.00
@@ -58,5 +59,9 @@ print(1.00 % 0.10)  # 0.09999999999999995
 
 getcontext().prec = 36
 print(Decimal(1) / Decimal(7))  # 0.142857142857142857142857142857142857
+
+from fractions import Fraction
+print(Fraction.from_float(0.1))  # 3602879701896397/36028797018963968
+print((0.1).as_integer_ratio())  # (3602879701896397, 36028797018963968)
 
 
