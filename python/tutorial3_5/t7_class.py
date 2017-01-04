@@ -92,9 +92,8 @@ print(s.data)  # [3, 3]
 
 
 class MultiExtend(Complex, Bag):
+    pass
 
-    def f(self):
-        print('This is test')
 
 
 
