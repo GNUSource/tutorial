@@ -39,6 +39,7 @@ print(queue)  # deque(['b', 3, 'd', 5])
 
 # list 列表推导式：为从序列中创建列表提供了一个简单的方法。使用的是笛卡尔积
 # 列表推导式创建列表避免了使用 for 循环创建后迭代元素依旧存在的问题
+# define：function for item in collections if
 
 # function map(function, iterable, ...)
 # 详见 https://my.oschina.net/zyzzy/blog/115096
@@ -80,6 +81,9 @@ del a  # 清空整个列表
 
 
 # 元组：序列类型（Sequence Types）
+# 一维、定长、不可变
+# list->tuple，string->tuple，直接使用 tuple(x) 函数即可
+# 合并元组：tup1 + tup2
 
 t = (12345, 'hello', 3, 'world')
 
@@ -114,6 +118,7 @@ print('x is ', x, '，y is ', y, '，z is ', z)  # x is  12345 ，y is  36985 �
 
 # 集合：无序不重复元素的集。基本功能包括关系测试和消除重复元素；集合的创建必须使用 set()；
 # 可用的运算有：union(联合)，intersection(交)，difference(差)，sysmmetric difference(对称差集)
+# 判断子父集：a.ussubset(b)，a.issuperset(b)
 
 basket = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
 
@@ -129,6 +134,7 @@ print(a)  # {'2', 's', '1', '7'}
 
 # 字典：字典即为无序的键：值对 (key:value) 集合，键必须是互不相同的，一对大括号创建一个空的字典：{}。
 # del 删除键值对；list(d.keys())，返回字典中所有关键字组成的无序列表（排序可使用 sorted(d.keys)）
+# 合并字典：dict1.update(dict2)
 
 tel = {'jack':4098, 'tom':552}
 
@@ -144,8 +150,12 @@ print(list(tel.keys()), sorted(tel.keys()))  # ['tom', 'jack'] ['jack', 'tom']
 
 # dict()构造函数可以直接从 key-value 对中创建字典
 
-print(dict([('tom', 'men'), ('hanMeiMei', 'women')]))  # {'liLei': 'man', 'hanMeiMei': 'women'}
+print(dict([('tom', 'men'), ('hanMeiMei', 'women')]))  # display：{'liLei': 'man', 'hanMeiMei': 'women'}。从元组中创建字典
 print(dict(tom='men', hanMeiMei='women', jack='undefined'))  # {'jack': 'undefined', 'hanMeiMei': 'women', 'tom': 'men'}
+
+l1 = range(10)
+l2 = list(reversed(range(10)))
+print(dict(zip(l1, l2)))  # zip：现将参数打包成元组、再封装成列表
 
 
 # 循环技巧
