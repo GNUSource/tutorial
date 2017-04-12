@@ -4,16 +4,16 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import spring.tutorial.bean.assem.JavaConfig;
-import spring.tutorial.bean.assem.manager.impl.Tree;
+import spring.tutorial.bean.assem.manager.impl.OnePlus;
 
-public class TreeTest {
-	
-	@SuppressWarnings("resource")
+public class OnePlusTest {
+
 	@Test
 	public void test() {
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
-//		Tree tree = (Tree) context.getBean(Tree.class);
-		Tree tree = (Tree) context.getBean("specialTree");
-		tree.printName();
+		
+		OnePlus onePlus = (OnePlus) context.getBean("phone");
+		onePlus.sayName();
+		onePlus.getIcar().sayName();
 	}
 }
