@@ -15,7 +15,6 @@ public class Bwm implements ICar {
 		this.iflower = iflower;
 	}
 
-	@Override
 	public void sayName() {
 		System.out.println("宝马");
 	}

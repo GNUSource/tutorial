@@ -22,7 +22,6 @@ public class OnePlus implements IMobilePhone {
 		this.icar = icar;
 	}
 
-	@Override
 	public void sayName() {
 		System.out.println("onePlus3...");
 	}

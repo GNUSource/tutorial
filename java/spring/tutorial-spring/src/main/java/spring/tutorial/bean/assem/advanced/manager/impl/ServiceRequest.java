@@ -14,10 +14,9 @@ public class ServiceRequest implements IServiceRequest {
 	@Autowired
 	@Qualifier(Constants.PERMISSION_MANAGE_SERVICE_REQUEST)
 	private IPermission iPermission;
-	
-	@Override
-	public Boolean accessUri(String userType) {
-		return iPermission.checkPermission(userType, Constants.PERMISSION_MANAGE_SERVICE_REQUEST);
-	}
 
+	public Boolean accessUri(String userType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

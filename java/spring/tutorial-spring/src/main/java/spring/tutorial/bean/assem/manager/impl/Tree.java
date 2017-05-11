@@ -14,7 +14,6 @@ public class Tree implements IPlant {
 
 	private String name = "我是树木";
 
-	@Override
 	public void getName() {
 		System.out.println(this.name);
 	}
