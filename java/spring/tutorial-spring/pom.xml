@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 
 	<name>spring-api Maven Webapp</name>
-	
+
 	<properties>
 		<!--指定Maven用什么编码来读取源码及文档 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -48,8 +48,29 @@
 			<version>1.8.10</version>
 		</dependency>
 
+		<!-- spring web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.3.7.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.3.7.RELEASE</version>
+		</dependency>
+
+		<!-- java 代码配置 servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		
+
 	</dependencies>
-	
+
 	<profiles>
 		<profile>
 			<!-- 开发环境 -->
@@ -136,5 +157,5 @@
 			</resource>
 		</resources>
 	</build>
-	
+
 </project>
