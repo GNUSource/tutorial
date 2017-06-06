@@ -2,7 +2,6 @@ package spring.tutorial.web.base.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.BindException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
