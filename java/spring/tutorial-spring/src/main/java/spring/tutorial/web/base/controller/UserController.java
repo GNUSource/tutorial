@@ -2,7 +2,9 @@ package spring.tutorial.web.base.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import spring.tutorial.jdbc.dao.User;
+import spring.tutorial.jdbc.dao.repository.IUserRepository;
 import spring.tutorial.web.base.exception.TutorialException;
 import spring.tutorial.web.base.vo.UserVO;
 
@@ -18,10 +22,14 @@ import spring.tutorial.web.base.vo.UserVO;
 @RequestMapping(value="/test")
 public class UserController {
 	
+	@Autowired
+	private IUserRepository iUserRepository;
+	
 	@ResponseBody
 	@RequestMapping(value={"/", "/hello"}, method=RequestMethod.GET)
 	public String sayHello() {
-		return "say hello";
+		System.out.println("This is test");
+		return "say hello123s";
 	}
 	
 	@RequestMapping(value="/helloWorld", method=RequestMethod.GET)
@@ -63,5 +71,12 @@ public class UserController {
 	@RequestMapping(value="/exception1")
 	public String handleException(){
 		throw new TutorialException("this is test");
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getUserList")
+	public String getUserList() {
+		List<User> users = iUserRepository.getUserList(1000);
+		return null;
 	}
 }

@@ -22,4 +22,8 @@ public class Constants {
 		user_type_x_permission.put("user", "");
 	}
 	
+	public static final String BEAN_ID_DATA_SOURCE_PROPERTY = "dataSourceOfProperty";
+	
+	public static final String BEAN_ID_DATA_SOURCE_JNDI = "dataSourceOfJndi";
+	
 }

@@ -5,12 +5,17 @@ import java.io.IOException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import spring.tutorial.jdbc.DataSourceConfig;
+import spring.tutorial.websocket.WebSocketConfig;
+
 @Configuration
 @ComponentScan
+@Import({DataSourceConfig.class, WebSocketConfig.class})
 public class RootConfig {
 	
 //	@Bean
