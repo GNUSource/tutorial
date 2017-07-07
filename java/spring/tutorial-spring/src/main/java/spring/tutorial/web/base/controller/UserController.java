@@ -1,22 +1,18 @@
 package spring.tutorial.web.base.controller;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import spring.tutorial.jdbc.dao.User;
 import spring.tutorial.jdbc.dao.repository.IUserRepository;
 import spring.tutorial.web.base.exception.TutorialException;
+import spring.tutorial.web.base.vo.MessageVO;
 import spring.tutorial.web.base.vo.UserVO;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequestMapping(value="/test")
@@ -32,9 +28,11 @@ public class UserController {
 		return "say hello123s";
 	}
 	
-	@RequestMapping(value="/helloWorld", method=RequestMethod.GET)
-	public String helloWorld() {
-		return "hello world";
+	@RequestMapping(value="/helloWorld", method=RequestMethod.POST)
+    @ResponseBody
+	public MessageVO helloWorld(@RequestBody MessageVO messageVO) {
+        messageVO.setMessage(String.format("original is ：%s", messageVO.getMessage()));
+	    return messageVO;
 	}
 	
 	@ResponseBody

@@ -12,10 +12,11 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import spring.tutorial.jdbc.DataSourceConfig;
 import spring.tutorial.websocket.WebSocketConfig;
+import spring.tutorial.websocket.WebSocketMessageBrokerConfig;
 
 @Configuration
 @ComponentScan
-@Import({DataSourceConfig.class, WebSocketConfig.class})
+@Import({DataSourceConfig.class, WebSocketConfig.class, WebSocketMessageBrokerConfig.class})
 public class RootConfig {
 	
 //	@Bean
@@ -35,5 +36,4 @@ public class RootConfig {
 		
 		return commonsMultipartResolver;
 	}
-
 }
