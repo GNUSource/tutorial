@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>websocket 2</title>
+</head>
+<body>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.js"></script>
+<script>
+    $(document).ready(function () {
+        var url = "http://localhost:8080/spring/stomp";
+        var sock = new SockJS(url);
+        var stomp = Stomp.over(sock);
+
+        var headers = {"user": "hanMeiMei"};
+
+        stomp.connect('guest', 'guest', function (frame) {
+            stomp.subscribe('/websocket/subscribe/hello', function (message) {
+                var json = JSON.parse(message.body);
+                console.log(json);
+            }, headers);
+            stomp.subscribe('/topic/broadcast', function (message) {
+                var json = JSON.parse(message.body);
+                console.log(json);
+            });
+            stomp.subscribe('/topic/hello', function (message) {
+                var json = JSON.parse(message.body);
+                console.log(json);
+            });
+        });
+    });
+</script>
+</body>
+</html>

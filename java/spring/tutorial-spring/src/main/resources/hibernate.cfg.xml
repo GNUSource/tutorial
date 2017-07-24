@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost/data?useUnicode=true&characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC</property>
+    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">admino0o0oo0</property>
+
+    //dialect翻译为方言 Hibernate根据你选择的“方言”，针对每种数据库，作调整，如生成不同的SQL语句等
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+    //连接池大小
+    <property name="connection.pool_size">100</property>
+
+    <property name="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>//c3p0连接池
+    <property name="c3p0.acquire_increment">5</property>//
+    <property name="c3p0.idle_test_period">60</property>//设定的时间间隔去自动校验链接对象并销毁timeout的
+    <property name="c3p0.max_size">100</property>//最大连接数
+    <property name="c3p0.min_size">15</property>//最小连接数
+    <property name="c3p0.max_statements">100</property>//JDBC的标准参数，用以控制数据源内加载的PreparedStatements数量。但由于预缓存的statements属于单个 connection而不是整个连接池。所以设置这个参数需要考虑到多方面的因素。如果maxStatements与 maxStatementsPerConnection均为0，则缓存被关闭
+    <property name="c3p0.timeout">1000</property>//连接超时时间
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

@@ -3,6 +3,7 @@ package spring.tutorial.web.base.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,8 @@ import spring.tutorial.orm.domain.User;
 import spring.tutorial.orm.domain.UserProfile;
 import spring.tutorial.orm.repository.IUserRepository;
 import spring.tutorial.orm.repository.UserProfileRepository;
+import spring.tutorial.web.base.service.dto.UserDTO;
+import spring.tutorial.web.base.service.mapper.UserMapper;
 
 import java.io.IOException;
 import java.util.Date;
@@ -30,6 +33,8 @@ public class ORMController {
     private IUserRepository iUserRepository;
     @Autowired
     private UserProfileRepository userProfileRepository;
+    @Autowired
+    private UserMapper userMapper;
 
 //    @ResponseBody
 //    @RequestMapping(value = "/blocktx/list", method = RequestMethod.GET)
@@ -46,7 +51,7 @@ public class ORMController {
 
     @ResponseBody
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    public String getList(@PathVariable("id") Integer id) throws JsonProcessingException {
+    public ResponseEntity<UserDTO> getList(@PathVariable("id") Integer id) throws JsonProcessingException {
         User user = iUserRepository.getUserDetail(id);
         try {
             mapper.writeValue(System.out, user);
@@ -54,7 +59,8 @@ public class ORMController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return mapper.writeValueAsString(user);
+        return null;
+//        return new ResponseEntity(userMapper.toDto(user), HttpStatus.OK);
     }
 
 
